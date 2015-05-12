@@ -20,13 +20,6 @@ module.exports = generators.Base.extend({
         this.sourceRoot(path.join(__dirname, '../templates'));
     },
 
-    writing: function () {
-        this.fs.copyTpl(
-            this.templatePath('app.js'),
-            this.destinationPath('app.js')
-        );
-    },
-
     prompting: function () {
         var done = this.async();
         this.prompt({
@@ -38,6 +31,13 @@ module.exports = generators.Base.extend({
             this.log(answers.name);
             done();
         }.bind(this));
+    },
+
+    writing: function () {
+        this.fs.copyTpl(
+            this.templatePath('*'),
+            this.destinationPath('.')
+        );
     },
 
     install: {}

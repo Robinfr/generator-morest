@@ -9,6 +9,7 @@
     "generator"
   ],
   "dependencies": {
+    "lodash": "^3.8.0",
     "yeoman-generator": "^0.19.2"
   }
 }

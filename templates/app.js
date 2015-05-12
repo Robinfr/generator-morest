@@ -1,1 +1,0 @@
-console.log('This is your new application! Fuck yeah');
