@@ -1,3 +1,8 @@
+var Controller = require('morest').Controller;
+
+//Load model
+require('./../models/<%= name %>');
+
 var <%= name %>Controller = new Controller({
     model: '<%= name %>',
     availableOperations: [

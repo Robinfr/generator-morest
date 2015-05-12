@@ -9,9 +9,12 @@ module.exports = generators.NamedBase.extend({
 
     constructor: function () {
         generators.NamedBase.apply(this, arguments);
+    },
 
+    default: function(){
         this.name = lodash.capitalize(lodash.camelCase(this.name));
     },
+
 
     writing: function () {
         this.fs.copyTpl(

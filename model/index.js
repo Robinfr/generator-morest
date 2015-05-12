@@ -10,17 +10,20 @@ module.exports = generators.NamedBase.extend({
     constructor: function () {
         generators.NamedBase.apply(this, arguments);
 
-        this.name = lodash.capitalize(lodash.camelCase(this.name));
-
         this.option('generate-controller', {
             desc: 'Whether to also generate the controller for this model',
             type: Boolean,
             defaults: false,
-            alias: 'controller'
+            alias: 'c'
         });
     },
 
+    default: function(){
+        this.name = lodash.capitalize(lodash.camelCase(this.name));
+    },
+
     writing: function () {
+        console.log(this.name);
         this.fs.copyTpl(
             this.templatePath('./model/model.js'),
             this.destinationPath('./app/models/' + this.name + '.js'),

@@ -12,7 +12,7 @@ module.exports = generators.Base.extend({
     init: function () {
         this.generateModel = function () {
             this.composeWith('morest:model', {
-                args: ['bear'],
+                args: ['Bear'],
                 options: {'generate-controller': true}
             });
         };
