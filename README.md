@@ -12,7 +12,7 @@ Make a new directory, and cd into it:
 mkdir my-new-project && cd $_
 Run yo morest, optionally passing an app name:
 
-yo morest [app-name]
+`yo morest [app-name]`
 
 ## Generators
 Available generators:
