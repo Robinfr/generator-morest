@@ -1,5 +1,7 @@
 # Morest Generator
 
+Easily generate a new Morest project, and get started with building an API even quicker!
+
 ## Usage
 
 Install `yo`, `grunt-cli`, `bower`, and `generator-morest`:

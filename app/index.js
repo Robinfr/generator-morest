@@ -6,7 +6,7 @@ module.exports = generators.Base.extend({
     constructor: function () {
         generators.Base.apply(this, arguments);
 
-        this.appname = lodash.capitalize(lodash.camelCase(this.appname));
+        this.argument('projectName', {type: String, optional: true, required: false});
     },
 
     init: function () {
@@ -23,16 +23,20 @@ module.exports = generators.Base.extend({
     },
 
     prompting: function () {
-        var done = this.async();
-        this.prompt({
-            type: 'input',
-            name: 'name',
-            message: 'Your project name',
-            default: this.appname
-        }, function (answers) {
-            this.appname = lodash.capitalize(lodash.camelCase(answers.name));
-            done();
-        }.bind(this));
+        if (!this.projectName) {
+            var done = this.async();
+            this.prompt({
+                type: 'input',
+                name: 'name',
+                message: 'Your project name',
+                default: this.appname
+            }, function (answers) {
+                this.appname = lodash.capitalize(lodash.camelCase(answers.name));
+                done();
+            }.bind(this));
+        } else {
+            this.appname = lodash.capitalize(lodash.camelCase(this.projectName));
+        }
     },
 
     writing: function () {
@@ -57,7 +61,7 @@ module.exports = generators.Base.extend({
         this.generateController();
     },
 
-    install: function(){
+    install: function () {
         this.npmInstall();
     }
 });
