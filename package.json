@@ -1,0 +1,14 @@
+{
+  "name": "generator-morest",
+  "version": "0.1.0",
+  "description": "",
+  "files": [],
+  "keywords": [
+    "morest-generator",
+    "morest",
+    "generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.19.2"
+  }
+}
