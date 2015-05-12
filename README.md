@@ -17,9 +17,9 @@ yo morest [app-name]
 ## Generators
 Available generators:
 
-- [morest](#App)
-- [morest:controller](#Controller)
-- [morest:model](#Model)
+- [morest](#app)
+- [morest:controller](#controller)
+- [morest:model](#model)
 
 ### App
 Sets up a new Morest application. This will generate all the boilerplate you need to get started, and install the 
