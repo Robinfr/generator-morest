@@ -1,4 +1,5 @@
 var generators = require('yeoman-generator');
+var path = require('path');
 
 module.exports = generators.Base.extend({
     constructor: function () {
@@ -13,6 +14,17 @@ module.exports = generators.Base.extend({
 
     method2: function () {
         console.log('Method 2 just ran');
+    },
+
+    paths: function () {
+        this.sourceRoot(path.join(__dirname, '../templates'));
+    },
+
+    writing: function () {
+        this.fs.copyTpl(
+            this.templatePath('app.js'),
+            this.destinationPath('app.js')
+        );
     },
 
     prompting: function () {
