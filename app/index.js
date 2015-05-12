@@ -10,10 +10,10 @@ module.exports = generators.Base.extend({
     },
 
     init: function () {
-        this.generateController = function () {
-            this.composeWith('morest:controller', {
+        this.generateModel = function () {
+            this.composeWith('morest:model', {
                 args: ['bear'],
-                options: {'generate-model': true}
+                options: {'generate-controller': true}
             });
         };
     },
@@ -58,7 +58,7 @@ module.exports = generators.Base.extend({
             this.destinationPath('.gitignore')
         );
 
-        this.generateController();
+        this.generateModel();
     },
 
     install: function () {

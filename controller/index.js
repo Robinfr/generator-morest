@@ -11,13 +11,6 @@ module.exports = generators.NamedBase.extend({
         generators.NamedBase.apply(this, arguments);
 
         this.name = lodash.capitalize(lodash.camelCase(this.name));
-
-        this.option('generate-model', {
-            desc: 'Whether to also generate the model for this controller',
-            type: Boolean,
-            defaults: false,
-            alias: 'model'
-        });
     },
 
     writing: function () {
@@ -26,11 +19,5 @@ module.exports = generators.NamedBase.extend({
             this.destinationPath('./app/controllers/' + this.name + '.js'),
             {name: this.name}
         );
-
-        if (this.options['generate-model']) {
-            this.composeWith('morest:model', {
-                args: [this.name]
-            });
-        }
     }
 });
