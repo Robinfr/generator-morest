@@ -2,6 +2,8 @@
   "name": "generator-morest",
   "version": "0.1.1",
   "description": "",
+  "author": "Robin Franken",
+  "license": "MIT",
   "files": [],
   "keywords": [
     "morest-generator",
