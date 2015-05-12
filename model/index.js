@@ -11,10 +11,13 @@ module.exports = generators.NamedBase.extend({
         generators.NamedBase.apply(this, arguments);
 
         this.name = lodash.capitalize(lodash.camelCase(this.name));
-    },
 
-    method1: function () {
-        console.log(this.name);
+        this.option('generate-controller', {
+            desc: 'Whether to also generate the controller for this model',
+            type: Boolean,
+            defaults: false,
+            alias: 'controller'
+        });
     },
 
     writing: function () {
@@ -22,6 +25,12 @@ module.exports = generators.NamedBase.extend({
             this.templatePath('./model/model.js'),
             this.destinationPath('./app/models/' + this.name + '.js'),
             {name: this.name}
-        )
+        );
+
+        if (this.options['generate-controller']) {
+            this.composeWith('morest:controller', {
+                args: [this.name]
+            });
+        }
     }
 });
