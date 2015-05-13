@@ -39,7 +39,7 @@ Example:
 yo morest:model mymodel
 ```
 
-Optionally you can pass the ``--generate-controller`` flag to also generate a [controller](#Controller).
+Optionally you can pass the ``--generate-controller`` flag to also generate a [controller](#controller).
 
 ### Controller
 Creates a new controller that will use a model. Produces `app/controllers/mycontroller.js`.
@@ -50,4 +50,4 @@ yo morest:controller mycontroller
 ```
 
 Since model names and controller names should match, it's usually simpler to use the `--generate-controller` flag in 
-the [model generator](#Model).
+the [model generator](#model).
