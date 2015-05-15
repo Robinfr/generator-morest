@@ -7,6 +7,7 @@ Easily generate a new Morest project, and get started with building an API even 
 Install `yo`, and `generator-morest`:
 
 `npm install -g yo generator-morest`
+
 Make a new directory, and cd into it:
 
 `mkdir my-new-project && cd $_`
