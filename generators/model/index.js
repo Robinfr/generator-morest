@@ -3,10 +3,6 @@ var path = require('path');
 var lodash = require('lodash');
 
 module.exports = generators.NamedBase.extend({
-    paths: function () {
-        this.sourceRoot(path.join(__dirname, '../templates'));
-    },
-
     constructor: function () {
         generators.NamedBase.apply(this, arguments);
 
@@ -18,22 +14,23 @@ module.exports = generators.NamedBase.extend({
         });
     },
 
-    default: function(){
+    default: function () {
         this.name = lodash.capitalize(lodash.camelCase(this.name));
     },
 
     writing: function () {
         console.log(this.name);
         this.fs.copyTpl(
-            this.templatePath('./model/model.js'),
+            this.templatePath('./model.js'),
             this.destinationPath('./app/models/' + this.name + '.js'),
             {name: this.name}
         );
 
         if (this.options['generate-controller']) {
             this.composeWith('morest:controller', {
-                args: [this.name]
-            });
+                    args: [this.name]
+                },
+                {});
         }
     }
 });

@@ -12,14 +12,11 @@ module.exports = generators.Base.extend({
     init: function () {
         this.generateModel = function () {
             this.composeWith('morest:model', {
-                args: ['Bear'],
-                options: {'generate-controller': true}
-            });
+                    args: ['Bear'],
+                    options: {'generate-controller': true}
+                },
+                {});
         };
-    },
-
-    paths: function () {
-        this.sourceRoot(path.join(__dirname, '../templates'));
     },
 
     prompting: function () {
@@ -41,22 +38,17 @@ module.exports = generators.Base.extend({
 
     writing: function () {
         this.fs.copyTpl(
-            this.templatePath('*.json'),
-            this.destinationPath('.'),
+            this.templatePath('_package.json'),
+            this.destinationPath('package.json'),
             {
                 appName: this.appname
             }
         );
 
-        this.fs.copy(
-            this.templatePath('*.js'),
-            this.destinationPath('.')
-        );
-
-        this.fs.copy(
-            this.templatePath('gitignore'),
-            this.destinationPath('.gitignore')
-        );
+        this.fs.copy(this.templatePath('*.js'), this.destinationPath('.'));
+        this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
+        this.fs.copy(this.templatePath('editorconfig'), this.destinationPath('.editorconfig'));
+        this.fs.copy(this.templatePath('jshintrc'), this.destinationPath('.jshintrc'));
 
         this.generateModel();
     },
