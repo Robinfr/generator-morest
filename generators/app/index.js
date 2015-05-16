@@ -36,6 +36,11 @@ module.exports = generators.Base.extend({
         }
     },
 
+
+    configuring: function(){
+        this.config.save()
+    },
+
     writing: function () {
         this.fs.copyTpl(
             this.templatePath('_package.json'),
