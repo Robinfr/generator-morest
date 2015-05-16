@@ -19,7 +19,6 @@ module.exports = generators.NamedBase.extend({
     },
 
     writing: function () {
-        console.log(this.name);
         this.fs.copyTpl(
             this.templatePath('./model.js'),
             this.destinationPath('./app/models/' + this.name + '.js'),
